@@ -1,0 +1,16 @@
+name: CI to ACR and GitOps CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  # Using github.sha gives us a unique, immutable tag for every commit
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  build-push-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout app code
+        uses: actions/checkout@v4
