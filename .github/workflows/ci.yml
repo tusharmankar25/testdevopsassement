@@ -14,3 +14,9 @@ jobs:
     steps:
       - name: checkout app code
         uses: actions/checkout@v4
+      - name: Login to Azure Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.ACR_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
