@@ -116,10 +116,10 @@ jobs:
         with:
           repository: tusharmankar25/gitops-CD
           token: ${{ secrets.GITOPS_PAT }}
-          path: k8s-cd
+          path: gitops-repo
       - name: Update Kubernetes Manifest in GitOps Repo
         run: |
-          cd k8s-cd
+          cd gitops-repo/k8s-cd
  
           # This sed command finds the 'image:' line and replaces it with the new tag
           # Make sure the path to deployment.yaml matches your GitOps repo structure
